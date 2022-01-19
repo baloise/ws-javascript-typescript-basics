@@ -1,0 +1,22 @@
+{
+  "name": "01-ts-basics",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "parcel": "^2.0.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@parcel/transformer-sass": "^2.0.1",
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.1"
+  },
+  "scripts": {
+    "start": "npx parcel src/index.html public/**/*",
+    "test": "jest",
+    "watch": "jest --watchAll"
+  },
+  "author": "",
+  "license": "MIT"
+}

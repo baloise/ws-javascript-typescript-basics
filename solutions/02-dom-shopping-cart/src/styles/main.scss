@@ -1,0 +1,29 @@
+html,
+body {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial;
+  font-size: 16px;
+}
+
+h1 {
+  color: #4fc08d;
+  font-weight: 300;
+  font-size: 2.4em;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2em;
+  display: block;
+}
+
+div.container {
+  display: flex;
+}
+
+div.pizzas,
+div.shopping-cart {
+  flex: 1;
+}
+
+@import "pizza";
+@import "shopping-cart";

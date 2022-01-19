@@ -12,3 +12,6 @@
 - [01 Start](https://baloise.github.io/ws-javascript-typescript-basics/)
 - [02 Intro](https://baloise.github.io/ws-javascript-typescript-basics/01-intro.html)
 - [03 Basics](https://baloise.github.io/ws-javascript-typescript-basics/02-basics.html)
+- [04 Basics - Exercises]()
+- [05 DOM working with the browser]()
+- [05 DOM working with the browser - Exercises]()
