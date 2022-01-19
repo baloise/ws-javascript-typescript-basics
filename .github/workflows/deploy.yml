@@ -19,9 +19,8 @@ jobs:
         run: npm run build
 
       - name: Deploy pages
-        working-directory: ./docs
         uses: crazy-max/ghaction-github-pages@v2
         with:
-          build_dir: dist
+          build_dir: ./docs/dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
