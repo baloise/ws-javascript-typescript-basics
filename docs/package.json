@@ -12,6 +12,7 @@
   },
   "name": "ws-javascript-basics",
   "devDependencies": {
-    "@iconify-json/logos": "^1.0.4"
+    "@iconify-json/logos": "^1.0.4",
+    "@iconify-json/uim": "^1.0.2"
   }
 }

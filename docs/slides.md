@@ -131,24 +131,20 @@ First JavaScript was only used in browsers to build interacitve sections on a we
 
 ---
 
-# ES5
-
-- Runs in all modern browsers
-- New versions are transpiled into ES5
+layout: image image: ./ecma.png
 
 ---
 
-# ES6 / ES2015
+---
 
-- New version from 2015
-- In most cases gets compiled or transpiled to ES5
-- Has new features like:
-  - Classes
-  - Arrow Functions
-  - Block scoped let und const
-  - Module
-  - Multiline Strings
-  - ...
+# ES5 to ES9
+
+- Runs in all modern browsers (except IE11 🙈)
+- New versions are transpiled into ES5
+
+<br>
+
+![ECMA](/ecma-2.png)
 
 ---
 
@@ -157,13 +153,13 @@ First JavaScript was only used in browsers to build interacitve sections on a we
 - Created by Microsoft
 - Transpiled with the TypeScript Transpiler to JavaScript
 - Has features like:
-  - Types
+  - Types / Interfaces
   - Annotations / Decorators
-  - Interfaces -Generics
+  - Interfaces / Generics
 
 ---
-layout: center
----
+
+## layout: center
 
 # Questions
 
@@ -171,8 +167,8 @@ layout: center
 <strong class="text-20xl font-extrabold text-yellow-400/80">?</strong>
 
 ---
-layout: center
----
+
+## layout: center
 
 <div style="display: flex; justify-content: center; margin-bottom: 32px">
   <img src="/logo.png" style="height: 180px">
@@ -196,19 +192,36 @@ layout: center
 - Functions
 - Modules
 - Advanced features
+- Promises & Async/Await
 
 ---
 
 # Comments
 
-```typescript
-// Single Line Comments
+JavaScript comments can be used to explain JavaScript code, and to make it more readable.
 
+### Single Line Comments
+
+Single line comments start with `//`.
+
+```typescript
+// Change heading:
+document.getElementById("myH").innerHTML = "My First Page";
+```
+
+<br>
+
+### Multi-line Comments
+
+Multi-line comments start with `/*` and end with `*/`.
+
+```typescript
 /*
-Multi-line Comments
-Multi-line Comments
-Multi-line Comments
+The code below will change the heading with id = "myH"
+and the paragraph with id = "myP" in my web page:
 */
+document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";
 ```
 
 ---
@@ -217,17 +230,17 @@ Multi-line Comments
 
 There are 3 ways to declare a JavaScript variable:
 
-- Using var
-- Using let
-- Using const
+```typescript
+var oldValue = "some string";
 
-<br/>
-
-> We are going to focus on `let` and `const`
+// We are going to focus on `let` and `const`
+let index = 0;
+const list = [];
+```
 
 ---
 
-# Variables - `let`
+# Variables / `let`
 
 Variables defined with let cannot be Redeclared.
 
@@ -254,7 +267,7 @@ console.log(x); // ReferenceError: x is not defined
 
 ---
 
-# Variables - `const`
+# Variables / `const`
 
 Variables defined with const cannot be Reassigned.
 
@@ -280,15 +293,9 @@ console.log(x); // ReferenceError: x is not defined
 
 ---
 
-# Variables - `const`
+# Variables / `const`
 
-As a general rule, always declare a variable with const unless you know that the value will change.
-
-Use const when you declare a new Array, Object, Function or a RegExp
-
-> It does not define a constant value. It defines a constant reference to a value.
-
-<br/>
+As a general rule, always declare a variable with const unless you know that the value will change. Use const when you declare a new Array, Object, Function or a RegExp
 
 ```typescript
 // You can create a constant array:
@@ -298,6 +305,11 @@ const cars = ["Saab", "Volvo", "BMW"];
 cars[0] = "Toyota";
 cars.push("Fiat");
 ```
+
+<p class="text-yellow-500/80 flex items-center py-4">
+  <uim-exclamation-triangle class="inline-block mr-3" /> 
+  It does not define a constant value. It defines a constant reference to a value.
+</p>
 
 ---
 
@@ -314,12 +326,24 @@ cars.push("Fiat");
 
 ---
 
-# Types - String
+# Types / `string`
 
-## Template Strings
+A JavaScript string is zero or more characters written inside quotes.
 
 ```typescript
 let name = "John";
+```
+
+<br>
+<br>
+
+### Template Strings
+
+<p class="text-grey-500">
+  Template Literals use back-ticks (``) rather than the quotes ("") to define a string:
+</p>
+
+```typescript
 let templString = `Hello
    ${name},
    how are you?`;
@@ -332,46 +356,121 @@ console.log(templString); // Hello
 
 ---
 
-# Types - Number
-
-## Floating Precision
+# Types / `number` / Floating precision
 
 ```typescript
-let x = 0.2 + 0.1; // 0.30000000000000004
-let x = (0.2 * 10 + 0.1 * 10) / 10; // 0.3
+let x = 0.2 + 0.1;
 ```
 
 <br>
+
+### What is the result?
+
+<v-click>
+
+```typescript
+0.30000000000000004;
+```
+
+</v-click>
+
+<v-click>
+
+Number are converted into `1001011100` binary code.
+
+Not every number can be converted, so JS takes the next available number.
+
+In our case `0.2` is `0.20000000000000004`
+
 <br>
 
-## Adding Numbers and Strings
+</v-click>
+
+<v-click>
+
+### Workaround
+
+```typescript
+let x = (0.2 * 10 + 0.1 * 10) / 10; // 0.3
+```
+
+</v-click>
+
+---
+
+# Types / `number`
+
+Adding Numbers and Strings
+
+> Hint: The JavaScript interpreter works from left to right.
+
+<br>
 
 ```typescript
 let a = 10 + 20; // 30
 let b = "10" + 20; // 1020
 let c = 10 + "20"; // 1020
 let c = "10" + "20"; // 1020
-let d = 10 + 20 + "30"; // ???
 ```
 
-> Hint: The JavaScript interpreter works from left to right.
+<br>
+
+<v-click>
+
+### What is the output?
+
+```typescript
+let d = 10 + 20 + "30";
+```
+
+</v-click>
+
+<v-click>
+
+```typescript
+"3030";
+```
+
+</v-click>
 
 [W3Schools - Numbers](https://www.w3schools.com/js/js_numbers.asp)
 
 ---
 
-# Types - Truthy und Falsy
-
-- false
-- 0
-- "" (empty string)
-- null
-- undefined
-- NaN
+layout: image-right image: ./truthy-and-falsy.png
 
 ---
 
-# Types - Null & Undefined
+# Types / Truthy & Falsy
+
+- false
+- 0, -0
+- "" (empty string)
+- null, undefined, NaN
+
+**All other values are considered truthy!**
+
+<br>
+
+### Better conditions
+
+```typescript
+if (pets.length) {
+  // instead of pets.length > 0
+  return "You have at least one pet!";
+}
+```
+
+```typescript
+if (character) {
+  // character === undefined
+  return "No character found.";
+}
+```
+
+---
+
+# Types / `null` & `undefined`
 
 <br>
 
@@ -384,15 +483,29 @@ let customer = getCustomer();
 if (customer === null || customer === undefined) {
   // do sth.
 }
+```
 
+<br>
+
+<v-clicks>
+
+### How could it be simpler?
+
+</v-clicks>
+
+<v-clicks>
+
+```typescript
 if (!customer) {
   // do sth.
 }
 ```
 
+</v-clicks>
+
 ---
 
-# Types - Arrays
+# Types / Arrays
 
 <br>
 
@@ -403,18 +516,15 @@ let car = cars[0]; // access one item
 
 cars[0] = "Opel"; // modiefy one item
 
-cars.length; 3
+cars.length;
+3;
 ```
 
 [w3schools - arrays](https://www.w3schools.com/js/js_arrays.asp)
 
 ---
 
-# Types - Arrays
-
-<br>
-
-## Methods
+# Types / Arrays / Methods
 
 <br>
 
@@ -427,13 +537,9 @@ let fruit = fruits.pop(); // removes the last item and returns it
 
 ---
 
-# Types - Arrays
+# Types / Arrays / Iteration
 
-<br>
-
-
-## Iteration
-<br>
+Array iteration methods operate on every array item.
 
 ```typescript
 const arr = [45, 4, 9, 16, 25];
@@ -456,29 +562,29 @@ const sum = arr.reduce((previous, value, index, array) => previous + value);
 
 ---
 
-# Types - Object
+# Types / Object
 
 <br>
 
 ```typescript
-let lastName = "Muster";
+let lastName = "Doe";
 let obj = {
-  firstName: "Hans",
+  firstName: "John",
   lastName,
-  hobbies: ["Tennis", "Lesen"],
+  hobbies: ["Tennis", "Read"],
 };
 
 let obj = {};
-obj.firstName = "Hans";
-obj.lastName = "Muster";
-obj.hobbies = ["Tennis", "Lesen"];
+obj.firstName = "John";
+obj.lastName = "Doe";
+obj.hobbies = ["Tennis", "Read"];
 ```
 
 [w3schools - objects](https://www.w3schools.com/js/js_objects.asp)
 
 ---
 
-# Interface
+# Interfaces
 
 ```typescript
 interface Customer {
@@ -499,11 +605,9 @@ let compileError: Customer = {
 
 ---
 
-# Interface
+# Interfaces / Optional properties
 
-## optional properties
-
-```typescript
+```typescript{all|3}
 interface Customer {
   mandatory: string;
   optional?: string[];
@@ -523,11 +627,9 @@ let compileError: Customer = {
 
 ---
 
-# Interface
+# Types / Interfaces / Functions
 
-## functions
-
-```typescript
+```typescript{all|4|9-11}
 interface Customer {
   mandatory: string;
   optional?: string[];
@@ -535,7 +637,7 @@ interface Customer {
 }
 
 let customer: Customer = {
-  mandatory: "Hans",
+  mandatory: "John",
   fullName(first, last) {
     return first + " " + last;
   },
@@ -561,45 +663,78 @@ printAge([1, 2, 3]);
 
 ---
 
-# Class
-
-## Getter / Setter Syntax
+# Classes
 
 ```typescript
 class CustomerService {
-  private _customers: Customer[] = [{ name: "Hans" }];
+
+  private _customers: Customer[] = [{ name: "John" }];
+
   get customers() {
     return this._customers;
   }
+
   set customers(customers: Customer[]) {
     this._customers = customers;
   }
 
-  extractName(customer: Customer) {
-    return customer.name;
+  getCustomerNames(): string[] {
+    return this.customers.map((customer) => customer.name);
   }
 
-  getCustomerNames() {
-    return this.customers.map(extractName);
-  }
 }
 ```
 
 ---
 
-# Class
-
-## Constructor / shorthand
+# Class / Properties
 
 ```typescript
+class CustomerService {
+
+  // Optional props
+  private title: string | undefined = undefined;
+  private title?: string;
+
+  private name: string;
+  // Property 'name' has no initializer and is not definitely assigned in the constructor.
+  // Not null assertion operator
+  private name!: string;
+  
+}
+```
+
+---
+
+# Class / Constructor
+
+```typescript{all|2-5}
 class CustomerComponent {
-  constructor(private service: Service) {}
+  private service: Service;
+
+  constructor(service: Service) {
+    this.service = service
+  }
 
   findAll() {
     return this.service.findAll();
   }
 }
 ```
+
+<br>
+
+<v-click>
+
+### Lets use the shorthand variant
+
+```typescript
+class CustomerComponent {
+  constructor(private service: Service) {}
+}
+```
+
+</v-click>
 
 ---
 
@@ -613,105 +748,120 @@ function myFunction(p1: number, p2: number) {
 }
 ```
 
-## Arrow Function
-
 ```typescript
-const myFunction = (p1: number, p2: number) => p1 * p2;
 myFunction(1, 2);
 ```
 
----
+<br>
 
-# Functions
+# Arrow Function
 
-## Currying
+An arrow function expression is a compact alternative to a traditional function expression, but is limited and can't be used in all situations.
 
 ```typescript
-const myFunction = (p1: number) => (p2: number) => p1 * p2;
-const myFunction1 = myFunction(1);
-myFunction1(2) === myFunction(1)(2);
+const myFunction = (p1: number, p2: number) => p1 * p2;
 ```
 
 ---
 
-# Functions
-
-## Parameter
+# Functions / Arguments
 
 ```typescript
 function renderCustomer(c) {
-  console.log(c); // "Hans Muster"
+  console.log(c); // "John Doe"
 }
 
 function getFullName(name, callback) {
-  let lastName = "Muster";
+  let lastName = "Doe";
   callback(name + " " + lastName);
 }
 
-getFullName("Hans", function (result) {
+getFullName("John", function (result) {
   return renderCustomer(result);
 });
 
-getFullName("Hans", renderCustomer);
+getFullName("John", renderCustomer);
 ```
 
 ---
 
-# Functions
-
-## Default Parameter
+# Functions / Arguments
 
 Not passed parameters have the value `undefined`.
 
 ```typescript
-function fullName(first = "Hans", last = "Muster") {
+function fullName(first = "John", last) {
   return first + " " + last;
 }
-console.log(fullName("Peter")); // "Peter Muster"
+
+console.log(fullName());
+console.log(fullName("Peter", "Parker"));
+```
+
+<br>
+
+<v-click>
+
+### What is the output
+
+</v-click>
+
+<v-click>
+
+```typescript
+"John undefined";
+"Peter Parker";
+```
+
+</v-click>
+
+---
+
+# Module / Export
+
+Any declaration (such as a variable, function, class, type alias, or interface) can be exported by adding the export keyword.
+
+```typescript
+export interface StringValidator {
+  isAcceptable(s: string): boolean;
+}
+
+export const numberRegexp = /^[0-9]+$/;
+
+export class ZipCodeValidator implements StringValidator {
+  isAcceptable(s: string) {
+    return s.length === 5 && numberRegexp.test(s);
+  }
+}
 ```
 
 ---
 
-# Module
+# Module / Import
 
-## Export
+Importing is just about as easy as exporting from a module. Importing an exported declaration is done through using one of the import forms below:
 
 ```typescript
-export const API_URL = '/api';
-export interface Person = {
-   name: string;
-}
-export function add(a: number, b: number) {
-   return a + b;
-}
-export const addFive(a: number) => a + 5;
-export class Customer {
-   name: string;
-   constructor() {}
-}
+import { ZipCodeValidator } from "./ZipCodeValidator";
+let myValidator = new ZipCodeValidator();
 ```
 
----
-
-# Module
-
-## Import
+<br>
 
 ```typescript
-// same as destructuring ;-)
-import { Customer, Person } from "./customer";
-import { Component } from "@angular/core";
+import * as validator from "./ZipCodeValidator";
+let myValidator = new validator.ZipCodeValidator();
+```
 
-let customer = new Customer();
-let person: Person = {
-  name: "Hans",
-};
+<br>
+<br>
 
-import "rxjs/add/operator/map";
+### Import a module for side-effects only
 
-import * as alias from "./exports";
+<p class="text-white/40">Though not recommended practice, some modules set up some global state that can be used by other modules. These modules may not have any exports, or the consumer is not interested in any of their exports. To import these modules, use:</p>
 
-let addFunc = alias.addFive;
+```typescript
+import "./my-module.js";
 ```
 
 ---
@@ -731,9 +881,9 @@ let addFunc = alias.addFive;
 function info(name, ...hobbies) {
   hobbies.forEach((hobby) => console.log(hobby));
 }
-info("Hans", "Tennis", "Squash", "Schach");
+info("John", "Tennis", "Squash", "Football");
 
-// "Tennis" "Squash" "Schach"
+// "Tennis" "Squash" "Football"
 
 function multiply(multi, ...numbers) {
   return numbers.map((num) => multi * num);
@@ -753,11 +903,11 @@ let arr = [1, 2];
 let newArr = [...arr];
 
 // join arrays
-let devs = ["Hans", "Reto"];
+let devs = ["John", "Tony"];
 let testers = ["Peter", "Nicole"];
-let employees = ["El jefe", ...devs, ...testers];
+let employees = ["Will", ...devs, ...testers];
 console.log(employees);
-// ["El jefe", "Hans", "Reto", "Peter", "Nicole"]
+// ["Will", "John", "Tony", "Peter", "Nicole"]
 
 let today = [2017, 2, 29];
 console.log(new Date(...today).toDateString());
@@ -790,17 +940,17 @@ console.log(rest); // [3, 4, 5]
 
 ```typescript
 let obj = {
-  firstName: "Hans",
-  lastName: "Muster",
-  hobbies: ["Tennis", "Lesen"],
+  firstName: "John",
+  lastName: "Doe",
+  hobbies: ["Tennis", "Read"],
 };
 
 let { firstName, hobbies } = obj;
-console.log(firstName); // "Hans"
-console.log(hobbies); // ["Tennis", "Lesen"]
+console.log(firstName); // "John"
+console.log(hobbies); // ["Tennis", "Read"]
 
 let { firstName: name } = obj;
-console.log(name); // "Hans"
+console.log(name); // "John"
 ```
 
 ---
@@ -813,8 +963,8 @@ console.log(name); // "Hans"
 - [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/)
 
 ---
-layout: center
----
+
+## layout: center
 
 # Questions
 
