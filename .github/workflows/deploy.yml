@@ -16,7 +16,7 @@ jobs:
 
       - name: Build
         working-directory: ./docs
-        run: npm run build --base /ws-javascript-typescript-basics/
+        run: npm run build
 
       - name: Deploy pages
         uses: crazy-max/ghaction-github-pages@v2

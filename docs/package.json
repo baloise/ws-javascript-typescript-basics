@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "slidev build",
+    "build": "slidev build --base /ws-javascript-typescript-basics/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
