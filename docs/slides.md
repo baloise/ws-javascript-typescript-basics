@@ -813,7 +813,10 @@ console.log(name); // "Hans"
 - [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/)
 
 ---
+layout: center
+---
 
 # Questions
 
-<strong style="font-size: 8em">?</strong>
+<br>
+<strong class="text-20xl font-extrabold text-yellow-400/80">?</strong>
