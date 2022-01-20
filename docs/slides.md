@@ -130,9 +130,7 @@ First JavaScript was only used in browsers to build interacitve sections on a we
 </div>
 
 ---
-
 layout: image image: ./ecma.png
-
 ---
 
 ---
@@ -158,8 +156,8 @@ layout: image image: ./ecma.png
   - Interfaces / Generics
 
 ---
-
-## layout: center
+layout: center
+---
 
 # Questions
 
@@ -436,9 +434,8 @@ let d = 10 + 20 + "30";
 [W3Schools - Numbers](https://www.w3schools.com/js/js_numbers.asp)
 
 ---
-
-layout: image-right image: ./truthy-and-falsy.png
-
+layout: image-right 
+image: ./truthy-and-falsy.png
 ---
 
 # Types / Truthy & Falsy
@@ -700,12 +697,12 @@ class CustomerService {
   // Property 'name' has no initializer and is not definitely assigned in the constructor.
   // Not null assertion operator
   private name!: string;
-  
+
 }
 ```
 
 ---
-
+ 
 # Class / Constructor
 
 ```typescript{all|2-5}
@@ -963,8 +960,8 @@ console.log(name); // "John"
 - [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/)
 
 ---
-
-## layout: center
+layout: center
+---
 
 # Questions
 
