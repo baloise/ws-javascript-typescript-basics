@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "slidev build --base /ws-javascript-typescript-basics/",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.28.1",
+    "@slidev/theme-apple-basic": "^0.20.0",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*",
+    "slidev-theme-unicorn": "^1.0.21"
+  },
+  "name": "ws-javascript-basics",
+  "devDependencies": {
+    "@iconify-json/logos": "^1.0.4",
+    "@iconify-json/uim": "^1.0.2"
+  }
+}

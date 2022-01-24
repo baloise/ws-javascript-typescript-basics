@@ -1,0 +1,71 @@
+:root {
+  --slidev-theme-primary: #5d8392;
+  --slidev-slide-container-background: #1a1a1a;
+  --tw-bg-opacity: 0;
+}
+
+#slide-content {
+  --tw-bg-opacity: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  color: #979797;
+  opacity: 1 !important;
+}
+
+.slidev-layout h1 + p {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.cover h1,
+.question {
+  font-weight: 900;
+  background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
+  background-image: -webkit-linear-gradient(315deg, #ffe066, #1864ab);
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-color: initial;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 > code:before {
+  content: "";
+}
+
+h1 > code:after {
+  content: "";
+}
+
+h1 > code {
+  background: #282c34;
+  color: #a266b5;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.slidev-layout blockquote {
+  padding: 8px;
+  background: #282c34;
+  border-left: 4px solid #fcc419;
+}
