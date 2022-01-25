@@ -18,7 +18,7 @@ title: JavaScript / TypeScript
 
 ---
 layout: image-right
-image: public/logo.png
+image: logo.png
 ---
 
 # FAQ
@@ -133,7 +133,7 @@ First JavaScript was only used in browsers to build interacitve sections on a we
 </div>
 
 ---
-layout: image 
+layout: image
 image: ./ecma.png
 ---
 
@@ -150,7 +150,7 @@ image: ./ecma.png
 
 ---
 layout: image-right
-image: public/ts-logo.svg
+image: ts-logo.svg
 ---
 
 # TypeScript
@@ -169,7 +169,7 @@ layout: center
 <strong class="text-8xl font-extrabold question">Questions ?</strong>
 
 ---
-layout: cover 
+layout: cover
 class: text-center
 ---
 
@@ -192,8 +192,9 @@ image: logo.png
 - Comments
 - Variables
 - Types
-- Unions
-- Interfaces
+- If... Else...
+- Union Type
+- Object Types
 - Classes
 - Functions
 - Modules
@@ -207,6 +208,8 @@ layout: cover
 # Comments
 
 JavaScript comments can be used to explain JavaScript code, and to make it more readable.
+
+[w3schools - Comments](https://www.w3schools.com/js/js_comments.asp)
 
 ---
 
@@ -255,11 +258,13 @@ let index = 0;
 const list = [];
 ```
 
-<br>
+[w3schools - Variables](https://www.w3schools.com/js/js_variables.asp)
 
 ---
 
-# Variables / Why don’t we use var anymore?
+# Variables / `var`
+
+Why don’t we use `var` anymore?
 
 ```java
 public class Example () {
@@ -267,7 +272,6 @@ public class Example () {
     for(int i = 0; i < array.length; i++) {
       System.out.println(array[i]);
     }
-
     System.out.println("I cannot use the variable i here");
   }
 }
@@ -282,7 +286,6 @@ function processArray(array) {
   for (var i = 0; i < array.length; i++) {
     console.log("Element ", array[i]);
   }
-
   console.log("I can use variable i outside the loop ", i);
 }
 ```
@@ -375,6 +378,8 @@ layout: cover
 - arrays
 - objects
 
+[w3schools - Datatypes](https://www.w3schools.com/js/js_datatypes.asp)
+
 ---
 
 # Types
@@ -417,6 +422,45 @@ console.log(templString); // Hello
 ```
 
 [W3Schools - Strings](https://www.w3schools.com/js/js_strings.asp)
+
+---
+
+# Types / `number`
+
+Adding Numbers and Strings
+
+> Hint: The JavaScript interpreter works from left to right.
+
+<br>
+
+```typescript
+let a = 10 + 20; // 30
+let b = "10" + 20; // 1020
+let c = 10 + "20"; // 1020
+let c = "10" + "20"; // 1020
+```
+
+<br>
+
+<v-click>
+
+### What is the output?
+
+```typescript
+let d = 10 + 20 + "30";
+```
+
+</v-click>
+
+<v-click>
+
+```typescript
+"3030";
+```
+
+</v-click>
+
+[W3Schools - Numbers](https://www.w3schools.com/js/js_numbers.asp)
 
 ---
 
@@ -465,45 +509,6 @@ let x = (0.2 * 10 + 0.1 * 10) / 10; // 0.3
 ```
 
 </v-click>
-
----
-
-# Types / `number`
-
-Adding Numbers and Strings
-
-> Hint: The JavaScript interpreter works from left to right.
-
-<br>
-
-```typescript
-let a = 10 + 20; // 30
-let b = "10" + 20; // 1020
-let c = 10 + "20"; // 1020
-let c = "10" + "20"; // 1020
-```
-
-<br>
-
-<v-click>
-
-### What is the output?
-
-```typescript
-let d = 10 + 20 + "30";
-```
-
-</v-click>
-
-<v-click>
-
-```typescript
-"3030";
-```
-
-</v-click>
-
-[W3Schools - Numbers](https://www.w3schools.com/js/js_numbers.asp)
 
 ---
 
@@ -647,6 +652,132 @@ obj.hobbies = ["Tennis", "Read"];
 
 [w3schools - objects](https://www.w3schools.com/js/js_objects.asp)
 
+---
+layout: cover
+---
+
+# if { ... } else { ... }
+
+Use the **if** statement to specify a block of JavaScript code to be executed if a condition is true.
+
+```typescript
+if (condition) {
+  //  block of code to be executed if the condition is true
+} else {
+  //  block of code to be executed if the condition is false
+}
+```
+
+[w3schools - Comparisons](https://www.w3schools.com/js/js_comparisons.asp)
+
+[w3schools - Conditions](https://www.w3schools.com/js/js_if_else.asp)
+
+---
+
+# `if` ... `else` ... / Operator `=`
+
+In this example we use two **=** signs.
+
+```typescript
+2 == 2; // true
+"2" == "2"; // true
+```
+
+<v-click>
+<br>
+
+### What about this ?
+
+```typescript
+"2" == 2;
+```
+
+</v-click>
+
+<v-click>
+
+```typescript
+true;
+```
+
+</v-click>
+
+<v-click>
+<br>
+
+#### Solution
+
+Use three equal signs to equal value and equal type.
+
+```typescript
+"2" === 2; // false
+```
+
+</v-click>
+
+---
+
+# `if` ... `else` ... / Operators
+
+<br>
+
+```typescript
+2 < 12	       // true
+2 < "12"	     // true
+2 < "John"	   // false
+2 > "John"	   // false
+2 == "John"	   // false
+"2" < "12"	   // false
+"2" > "12"	   // true
+"2" == "12"	   // false
+```
+
+When comparing two strings, "2" will be greater than "12", because (alphabetically) 1 is less than 2.
+
+---
+
+# `if` ... `else` ... / Conditional Operator
+
+JavaScript also contains a conditional operator that assigns a value to a variable based on some condition.
+
+<br>
+
+#### Syntax
+
+```typescript
+variablename = condition ? value1 : value2;
+```
+
+<br>
+
+#### Example
+
+```typescript
+let voteable = (age < 18) ? "Too young" : "Old enough";
+```
+
+---
+layout: cover
+---
+
+# Union Types
+
+A union type is a type formed from two or more other types, representing values that may be any one of those types. We refer to each of these types as the union’s members.
+
+```typescript
+function printAge(age: number | string) {
+  console.log(age);
+}
+
+printAge(1); // 1
+printAge("1"); // 1
+
+// Argument of type 'number[]' is not assignable
+// to parameter of type 'string | number'.
+printAge([1, 2, 3]);
+```
+
+[TypeScript - Union Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types)
 
 ---
 layout: cover
@@ -668,7 +799,7 @@ type Person = {
   name: string;
   age: number;
 };
- 
+
 function greet(person: Person) {
   return "Hello " + person.name;
 }
@@ -743,29 +874,6 @@ let customer: Customer = {
 ```
 
 [TypeScript - Object Types](https://www.typescriptlang.org/docs/handbook/2/objects.html)
-
----
-layout: cover
----
-
-# Union Types
-
-A union type is a type formed from two or more other types, representing values that may be any one of those types. We refer to each of these types as the union’s members.
-
-```typescript
-function printAge(age: number | string) {
-  console.log(age);
-}
-
-printAge(1); // 1
-printAge("1"); // 1
-
-// Argument of type 'number[]' is not assignable
-// to parameter of type 'string | number'.
-printAge([1, 2, 3]);
-```
-
-[TypeScript - Union Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types)
 
 ---
 layout: cover
@@ -860,8 +968,8 @@ class CustomerService {
 ```
 
 ```typescript
-const service = new CustomerService()
-service.getCustomerNames() // ['John']
+const service = new CustomerService();
+service.getCustomerNames(); // ['John']
 ```
 
 ---
