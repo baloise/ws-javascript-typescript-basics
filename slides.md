@@ -53,7 +53,7 @@ Big companies like Netflix build entire applications around JavaScript
 
 # What can you do with it?
 
-First JavaScript was only used in browsers to build interacitve sections on a web pages
+First JavaScript was only used in browsers to build interactive sections on a web pages
 
 <br/>
 <br/>
@@ -160,7 +160,7 @@ image: ts-logo.svg
 - Has features like:
   - Types / Interfaces
   - Annotations / Decorators
-  - Interfaces / Generics
+  - Generics
 
 ---
 layout: center
@@ -296,7 +296,7 @@ function processArray(array) {
 
 # Variables / `let`
 
-Variables defined with let cannot be Redeclared.
+Variables defined with let cannot be Rßedeclared.
 
 ```typescript
 let x = "John Doe";
@@ -373,8 +373,8 @@ layout: cover
 
 - string
 - number
-- trughy & falsy
-- null & undefinded
+- truthy & falsy
+- null & undefined
 - arrays
 - objects
 
@@ -533,7 +533,7 @@ if (pets.length) {
 ```
 
 ```typescript
-if (character) {
+if (!character) {
   // character === undefined
   return "No character found.";
 }
@@ -585,7 +585,7 @@ const cars = ["Saab", "Volvo", "BMW"]; // creating an array
 
 let car = cars[0]; // access one item
 
-cars[0] = "Opel"; // modiefy one item
+cars[0] = "Opel"; // modify one item
 
 cars.length; // 3
 ```
@@ -600,7 +600,7 @@ cars.length; // 3
 
 ```typescript
 cars.push("Ferrari"); // add item
-let fruit = fruits.pop(); // removes the last item and returns it
+let cars = cars.pop(); // removes the last item and returns it
 ```
 
 [w3schools - arrays methods](https://www.w3schools.com/js/js_array_methods.asp)
@@ -644,7 +644,6 @@ let obj = {
   hobbies: ["Tennis", "Read"],
 };
 
-let obj = {};
 obj.firstName = "John";
 obj.lastName = "Doe";
 obj.hobbies = ["Tennis", "Read"];
@@ -732,11 +731,13 @@ Use three equal signs to equal value and equal type.
 "2" == "12"	   // false
 ```
 
+When comparing a string with a number, JavaScript will convert the string to a number when doing the comparison. An empty string converts to 0. A non-numeric string converts to NaN which is always false.
+
 When comparing two strings, "2" will be greater than "12", because (alphabetically) 1 is less than 2.
 
 ---
 
-# `if` ... `else` ... / Conditional Operator
+# `if` ... `else` ... / Conditional (ternary) Operator
 
 JavaScript also contains a conditional operator that assigns a value to a variable based on some condition.
 
@@ -745,7 +746,7 @@ JavaScript also contains a conditional operator that assigns a value to a variab
 #### Syntax
 
 ```typescript
-variablename = condition ? value1 : value2;
+variable = condition ? value1 : value2;
 ```
 
 <br>
@@ -770,7 +771,7 @@ function printAge(age: number | string) {
 }
 
 printAge(1); // 1
-printAge("1"); // 1
+printAge("1"); // "1"
 
 // Argument of type 'number[]' is not assignable
 // to parameter of type 'string | number'.
@@ -783,7 +784,7 @@ printAge([1, 2, 3]);
 layout: cover
 ---
 
-# Obeject Types
+# Object Types
 
 In JavaScript, the fundamental way that we group and pass around data is through objects. In TypeScript, we represent those through object types.
 
@@ -792,7 +793,7 @@ In JavaScript, the fundamental way that we group and pass around data is through
 
 ---
 
-# Obeject Types / Type alias
+# Object Types / Type alias
 
 ```typescript
 type Person = {
@@ -809,7 +810,7 @@ function greet(person: Person) {
 
 ---
 
-# Obeject Types / Interfaces
+# Object Types / Interfaces
 
 ```typescript
 interface Customer {
@@ -832,7 +833,7 @@ let compileError: Customer = {
 
 ---
 
-# Obeject Types / Interfaces / Optional properties
+# Object Types / Interfaces / Optional properties
 
 ```typescript{all|3}
 interface Customer {
@@ -856,7 +857,7 @@ let compileError: Customer = {
 
 ---
 
-# Obeject Types / Interfaces / Functions
+# Object Types / Interfaces / Functions
 
 ```typescript{all|4|9-11}
 interface Customer {
@@ -933,7 +934,7 @@ class CustomerComponent {
 
 <v-click>
 
-### Lets use the shorthand variante
+### Lets use the shorthand variants
 
 ```typescript
 class CustomerComponent {
